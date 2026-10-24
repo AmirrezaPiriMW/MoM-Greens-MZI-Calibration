@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mzi-sensor-calibration"
+version = "1.0.0"
+description = "Physics-based calibration of IMTL Mach-Zehnder interferometric dielectric sensors using Method of Moments and Green's Function at 2.45 GHz"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Amirreza Piri", email = "amirreza.piri01@universitadipavia.it"},
+]
+keywords = [
+    "dielectric-sensor",
+    "method-of-moments",
+    "greens-function",
+    "mach-zehnder",
+    "microwave",
+    "calibration",
+    "permittivity",
+    "electromagnetic",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov", "mypy", "ruff"]
+
+[project.urls]
+Homepage = "https://github.com/amirrezapiri/MoM-Greens-MZI-Calibration"
+Repository = "https://github.com/amirrezapiri/MoM-Greens-MZI-Calibration"
+Issues = "https://github.com/amirrezapiri/MoM-Greens-MZI-Calibration/issues"
+
+[tool.setuptools.packages.find]
+include = ["mzi_sensor*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
